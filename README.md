@@ -12,11 +12,11 @@ This project develops an advanced autonomous navigation system for the **Husario
 
 ### 1. Prerequisites
 Before deploying, ensure your ROSbot 2 PRO has **Docker** and **Docker Compose** installed. For detailed instructions on setting up the environment and internal hardware communication, refer to the official documentation:
-- [Husarion Docker Guide]([https://husarion.com/manuals/rosbot/docker/](https://husarion.com/software/docker/robots/))
+- [Husarion Docker Guide](https://husarion.com/software/docker/robots/))
 - [Husarion ROS2 Tutorials](https://husarion.com/tutorials/ros-tutorials/)
 
 ### 2. Installation
 Clone this repository into your ROSbot's user directory:
 ```bash
-git clone [https://github.com/YourOrgName/YourRepo.git](https://github.com/YourOrgName/YourRepo.git)
+git clone [https://github.com/Husarion-RoboticsProjects/AUTONOMOUS-NAVIGATION-FOR-ROSBOT2-PRO.git]
 cd YourRepo
