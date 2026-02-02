@@ -1,0 +1,63 @@
+services:
+  astra:
+    image: husarion/astra:humble
+    container_name: astra
+    devices:
+      - /dev/bus/usb/
+    volumes:
+      - ./astra-params.yaml:/ros2_ws/install/astra_camera/share/astra_camera/params/astra_mini_params.yaml
+    environment:
+      - RMW_IMPLEMENTATION
+    command: >
+      ros2 launch astra_camera astra_mini.launch.py
+
+  rplidar:
+    image: husarion/rplidar:humble
+    container_name: rplidar
+    restart: unless-stopped
+    devices:
+      - ${LIDAR_SERIAL:?err}:/dev/ttyUSB0
+    environment:
+      - RMW_IMPLEMENTATION
+    command: >
+      ros2 launch sllidar_ros2 sllidar_launch.py
+      serial_baudrate:=${RPLIDAR_BAUDRATE:-256000}
+
+  microros:
+    image: husarion/micro-ros-agent:humble
+    container_name: microros
+    restart: unless-stopped
+    devices:
+      - ${SERIAL_PORT:?err}
+    environment:
+      - RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+    command: >
+      ros2 run micro_ros_agent micro_ros_agent serial
+      -D $SERIAL_PORT
+      serial -b 576000
+
+  rosbot:
+    image: husarion/rosbot:humble
+    container_name: rosbot
+    restart: unless-stopped
+    environment:
+      - RMW_IMPLEMENTATION
+    command: >
+      ros2 launch rosbot_bringup bringup.launch.py
+
+  nav2:
+    image: husarion/navigation2:humble
+    volumes:
+      - /home/husarion/my-nav2-params.yaml:/params.yaml
+      - /home/husarion/rosbot_ws:/maps
+      - ~/rosbot_nav2:/workspace/nav2_ws
+    command: >
+      bash -c "while true; do sleep 1000; done"
+
+  slam-toolbox:
+    image: husarion/slam-toolbox:humble
+    volumes:
+      - ./my-slam-params.yaml:/params.yaml
+    command: >
+      ros2 launch slam_toolbox online_sync_launch.py
+
