@@ -19,4 +19,4 @@ Before deploying, ensure your ROSbot 2 PRO has **Docker** and **Docker Compose**
 Clone this repository into your ROSbot's user directory:
 ```bash
 git clone [https://github.com/Husarion-RoboticsProjects/AUTONOMOUS-NAVIGATION-FOR-ROSBOT2-PRO.git]
-cd YourRepo
+cd AUTONOMOUS-NAVIGATION-FOR-ROSBOT2-PRO
