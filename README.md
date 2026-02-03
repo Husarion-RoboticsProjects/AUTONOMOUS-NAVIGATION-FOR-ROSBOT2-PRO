@@ -63,8 +63,11 @@ Once it is finish area exploration
 ```bash
 ros2 run nav2_map_server map_saver_cli -f /ruta-completa/nombre_mapahome
 ```
+Stop
+### Step 2: Path planning and navigation (Host-Foxy)
 
-In the Host terminal (Foxy)
 ```bash
 ros2 run global_motion global_planner_node
 ```
+
+
