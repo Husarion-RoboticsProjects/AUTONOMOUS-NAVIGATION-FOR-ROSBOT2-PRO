@@ -63,6 +63,14 @@ RViz configuration:
 <img width="1386" height="937" alt="image" src="https://github.com/user-attachments/assets/319f91cd-b537-4b31-8b2e-0c74325af3bb" />
 
 
+To achieve the visualization shown above during the mapping process, configure your RViz2 workspace with the following displays. This ensures correct data validation for SLAM:
+
+* **Fixed Frame:** Set to `map`.
+* **Map Display:** * Topic: `/map`
+    * Durability Policy: `Transient Local`
+* **LaserScan Display:** * Topic: `/scan`
+* **RobotModel:** To visualize the ROSbot 2 PRO URDF in real-time.
+
 Once exploration is finished, save the map in the shared volume to ensure it persists on the host:
 
 ```bash
@@ -86,4 +94,13 @@ RViz configuration:
 <img width="886" height="598" alt="image" src="https://github.com/user-attachments/assets/bceb15d9-7dcd-4259-bfed-760d5d1df41e" />
 
 
+Based on previous configuration for mapping step, you must add:
 
+* **Path:** This represents the obstacle-free route calculated by our custom algorithm. Set to `planned_path`
+* **Pose with Covariance:** Estimated robot pose and its associated covariance ellipse, representing the localization system's confidence and spatial uncertainty.. Set to `/amcl_pose`
+
+#### Starting navigation
+
+Set Initial Pose: Click the "2D Pose Estimate" button and indicate the robot's current position and orientation on the map.
+
+Define Destination: Select the "2D Goal Pose" tool and click on the target location. This triggers the path calculation in the global_motion_node and starts the autonomous movement.
