@@ -12,7 +12,7 @@ This project develops an advanced autonomous navigation system for the **Husario
 
 ### 1. Prerequisites
 Before deploying, ensure your ROSbot 2 PRO has **Docker** and **Docker Compose** installed. For detailed instructions on setting up the environment and internal hardware communication, refer to the official documentation:
-- [Husarion Docker Guide](https://husarion.com/software/docker/robots/))
+- [Husarion Docker Guide](https://husarion.com/software/docker/robots/)
 - [Husarion ROS2 Tutorials](https://husarion.com/tutorials/ros-tutorials/)
 
 ### 2. Installation
