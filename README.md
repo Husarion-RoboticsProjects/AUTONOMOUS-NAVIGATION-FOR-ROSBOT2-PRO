@@ -20,3 +20,21 @@ Clone this repository into your ROSbot's user directory:
 ```bash
 git clone [https://github.com/Husarion-RoboticsProjects/AUTONOMOUS-NAVIGATION-FOR-ROSBOT2-PRO.git]
 cd AUTONOMOUS-NAVIGATION-FOR-ROSBOT2-PRO
+```
+### 3. Compilation Guide
+
+To ensure system stability, follow this dual-compilation workflow:
+
+#### 3.1 Perception Layer (Docker - Humble)
+The `rosbot_slam_ws` must be mounted as a shared volume in your Docker container.
+```bash
+# Inside the Humble container
+cd /ros2_ws
+colcon build --symlink-install
+source install/setup.bash
+```
+#### 3.2 Perception Layer (ROSbot Host - Foxy)
+cd ~/your_repo_path/custom_rosbot_nav
+colcon build --symlink-install
+source install/setup.bash
+
