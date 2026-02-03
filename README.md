@@ -39,4 +39,17 @@ cd ~/your_repo_path/custom_rosbot_nav
 colcon build --symlink-install
 source install/setup.bash
 ```
+### Step 1: Mapping (Slam Toolbox)
+To create a map of your environment, follow these steps:
 
+Launch the Hardware: Start the base robot nodes and sensors (Lidar/Camera) using Docker:
+```bash
+docker compose up -d rplidar microros rosbot nav2
+
+docker exec -it ID_navigation2 bash
+```
+You can identify the Container ID or Name(navigation2)
+```bash
+docker ps -a
+
+```
