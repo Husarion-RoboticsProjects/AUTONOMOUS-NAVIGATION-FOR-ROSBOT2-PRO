@@ -51,5 +51,20 @@ docker exec -it ID_navigation2 bash
 You can identify the Container ID or Name(navigation2)
 ```bash
 docker ps -a
+```
+```bash
+ros2 launch nav2_bringup navigation_launch.py
 
+#Start mapping
+ros2 launch rosbot_slam slam.launch.py
+```
+Once it is finish area exploration
+
+```bash
+ros2 run nav2_map_server map_saver_cli -f /ruta-completa/nombre_mapahome
+```
+
+In the Host terminal (Foxy)
+```bash
+ros2 run global_motion global_planner_node
 ```
