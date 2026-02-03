@@ -34,7 +34,9 @@ colcon build --symlink-install
 source install/setup.bash
 ```
 #### 3.2 Perception Layer (ROSbot Host - Foxy)
+```bash
 cd ~/your_repo_path/custom_rosbot_nav
 colcon build --symlink-install
 source install/setup.bash
+```
 
