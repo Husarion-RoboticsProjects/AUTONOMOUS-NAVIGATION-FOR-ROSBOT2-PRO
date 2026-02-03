@@ -48,26 +48,36 @@ docker compose up -d rplidar microros rosbot nav2
 
 docker exec -it ID_navigation2 bash
 ```
-You can identify the Container ID or Name(navigation2)
+You can identify the Container ID or Name (navigation2)
 ```bash
 docker ps -a
 ```
 ```bash
+# Inside the container
 ros2 launch nav2_bringup navigation_launch.py
-
-#Start mapping
 ros2 launch rosbot_slam slam.launch.py
 ```
-Once it is finish area exploration
+
+RViz configuration:
+
+Once exploration is finished, save the map in the shared volume to ensure it persists on the host:
 
 ```bash
-ros2 run nav2_map_server map_saver_cli -f /ruta-completa/nombre_mapahome
+ros2 run nav2_map_server map_saver_cli -f /complete-path-to-desired-directory/nombre_mapahome
 ```
-Stop
-### Step 2: Path planning and navigation (Host-Foxy)
+After saving, you can stop the launch files
+
+### Step 2: Path planning and navigation
 
 ```bash
+#Inside the navigation2 docker
+ros2 launch rosbot_slam amcl.launch.py
+```
+
+```bash
+# In the ROSbot host terminal (Foxy)
 ros2 run global_motion global_planner_node
 ```
+RViz configuration:
 
 
