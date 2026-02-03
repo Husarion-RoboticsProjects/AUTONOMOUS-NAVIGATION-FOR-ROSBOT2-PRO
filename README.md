@@ -60,6 +60,9 @@ ros2 launch rosbot_slam slam.launch.py
 
 RViz configuration:
 
+<img width="1386" height="937" alt="image" src="https://github.com/user-attachments/assets/319f91cd-b537-4b31-8b2e-0c74325af3bb" />
+
+
 Once exploration is finished, save the map in the shared volume to ensure it persists on the host:
 
 ```bash
@@ -79,5 +82,8 @@ ros2 launch rosbot_slam amcl.launch.py
 ros2 run global_motion global_planner_node
 ```
 RViz configuration:
+
+<img width="886" height="598" alt="image" src="https://github.com/user-attachments/assets/bceb15d9-7dcd-4259-bfed-760d5d1df41e" />
+
 
 
